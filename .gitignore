@@ -254,3 +254,146 @@ docs/dev
 
 *.~undo-tree~
 *.backup
+
+# Prerequisites
+*.d
+
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+*.pyc
+
+# Linker output
+*.ilk
+*.map
+*.exp
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+
+# Log-Files
+# currently only in this directory, not in subdirs! (some .log used in testing env)
+/*.log
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Kernel Module Compile Results
+*.mod*
+*.cmd
+.tmp_versions/
+modules.order
+Module.symvers
+Mkfile.old
+dkms.conf
+
+user.bazelrc
+bazel-*
+!zuul.d/
+
+# IDE specific files
+.clwb/
+.clwb
+.*.swp
+.history
+
+# Symphony and SYML Editor
+/logs
+.metadata
+
+# Visual Studio Code
+.vscode
+#
+
+# Jetbrains IDE directory
+**/.idea/**/*.*
+
+# Ignore clangd's config file and cache folders
+.clangd
+**/.cache/clangd
+
+# Temporary needed sym links
+/adp
+/urban
+/foresight
+
+# Python test environment
+.tox
+*.egg-info
+
+# Fca specific dependecies file
+third_party/non_shareable_dependencies_fcaspec.bzl
+
+# compilation database
+**/compile_commands.json
+# bazel-compile-commands config file
+.bazelccrc
+
+# Sphinx doc build folder
+docs/build-output/*
+docs/_build/*
+
+# Mac Os specific files
+.DS_Store
+
+# Python virtual environment
+.venv
+
+# Folder config
+.envrc
+
+# Ignore Javascript/Typescript (node) artifacts
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.eslintcache
+.yarn-integrity
+
+debug_*.bat
+
+cvi_ws*
+
+# klocwork
+.kwlp
+.kwps
+
+# gdb
+.gdbinit
+
+### Automatically added by Hedron's Bazel Compile Commands Extractor: https://github.com/hedronvision/bazel-compile-commands-extractor
+# Ignore the `external` link (that is added by `bazel-compile-commands-extractor`). The link differs between macOS/Linux and Windows, so it shouldn't be checked in. The pattern must not end with a trailing `/` because it's a symlink on macOS/Linux.
+/external
+# Ignore links to Bazel's output. The pattern needs the `*` because people can change the name of the directory into which your repository is cloned (changing the `bazel-<workspace_name>` symlink), and must not end with a trailing `/` because it's a symlink on macOS/Linux.
+/bazel-*
+# Ignore generated output. Although valuable (after all, the primary purpose of `bazel-compile-commands-extractor` is to produce `compile_commands.json`!), it should not be checked in.
+/compile_commands.json
+# Ignore the directory in which `clangd` stores its local index.
+/.cache/

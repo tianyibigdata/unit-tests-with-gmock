@@ -1,0 +1,6 @@
+build:spp_host_clang --incompatible_enable_cc_toolchain_resolution=true
+build:spp_host_clang --cpu=x86_64
+build:spp_host_clang --compiler=clang
+
+# Set the package path to use the // prefix
+build --package_path=%workspace%

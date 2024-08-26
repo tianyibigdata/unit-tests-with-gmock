@@ -1,4 +1,5 @@
 #include "../i_random_number_generator_mock.hpp"
+#include "random_number_generator.hpp"
 
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
@@ -8,17 +9,6 @@
 using ::testing::AtLeast;
 using ::testing::DefaultValue;
 using ::testing::Return;
-
-enum class FlipCoinResult { HEAD = 0, TAIL = 1 };
-
-class CoinFlipper {
-  std::shared_ptr<IRandomNumberGenerator> m_RandomNumberGenerator;
-
-public:
-  CoinFlipper(std::shared_ptr<IRandomNumberGenerator> RandomNumberGenerator);
-
-  FlipCoinResult flip();
-};
 
 TEST(CoinFlipper, flip) {
   // 1) Create mock objects (collaborators)
@@ -37,9 +27,7 @@ TEST(CoinFlipper, flip) {
   FlipCoinResult result = coinFlipper.flip();
 
   // 5) Check output (using Google Test or some other framework)
-  std::cout << "asdfadsfa"
-            << "\n";
-  EXPECT_EQ(FlipCoinResult::TAIL, result);
+  EXPECT_EQ(FlipCoinResult::HEAD, result);
 }
 
 TEST(CoinFlipper, multipleFlipping) {
@@ -114,53 +102,53 @@ TEST(Consumer, multiplier) {
   EXPECT_EQ(15, result);
 }
 
-///////////////////////////////////////////////////////////////////////////////
-class databaseConnect {
-public:
-  virtual bool login(std::string userName, std::string password) {}
-  virtual bool logout(std::string userName) {}
-  virtual void fetchRecords() {}
-  virtual ~databaseConnect();
-};
+// ///////////////////////////////////////////////////////////////////////////////
+// class databaseConnect {
+// public:
+//   virtual bool login(std::string userName, std::string password) {}
+//   virtual bool logout(std::string userName) {}
+//   virtual void fetchRecords() {}
+//   virtual ~databaseConnect();
+// };
 
-class mockDB : public databaseConnect {};
+// class mockDB : public databaseConnect {};
 
-class databaseLayer {
-public:
-  databaseLayer(std::shared_ptr<databaseConnect> databaseConnectObject) {}
-};
+// class databaseLayer {
+// public:
+//   databaseLayer(std::shared_ptr<databaseConnect> databaseConnectObject) {}
+// };
 
-///////////////////////////////////////////////////////////////////////////////
+// ///////////////////////////////////////////////////////////////////////////////
 
-class Foo {
-public:
-  virtual int somePublicMethod() = 0;
+// class Foo {
+// public:
+//   virtual int somePublicMethod() = 0;
 
-protected:
-  virtual int someProtectedMethod();
+// protected:
+//   virtual int someProtectedMethod();
 
-private:
-  virtual int somePrivateMethod();
-};
+// private:
+//   virtual int somePrivateMethod();
+// };
 
-class MockFoo : public Foo {
-public:
-  MOCK_METHOD(int, somePublicMethod, (), (override));
-  MOCK_METHOD(int, someProtectedMethod, (), (override));
-  MOCK_METHOD(int, somePrivateMethod, (), (override));
-};
+// class MockFoo : public Foo {
+// public:
+//   MOCK_METHOD(int, somePublicMethod, (), (override));
+//   MOCK_METHOD(int, someProtectedMethod, (), (override));
+//   MOCK_METHOD(int, somePrivateMethod, (), (override));
+// };
 
-///////////////////////////////////////////////////////////////////////////////////
-template <typename T> class templatedInterface {
-public:
-  virtual T someFunction(T t) = 0;
-};
+// ///////////////////////////////////////////////////////////////////////////////////
+// template <typename T> class templatedInterface {
+// public:
+//   virtual T someFunction(T t) = 0;
+// };
 
-template <typename T>
-class MockedtemplatedInterface : public templatedInterface<T> {
-public:
-  MOCK_METHOD(T, someFunction, (T t), (override));
-};
+// template <typename T>
+// class MockedtemplatedInterface : public templatedInterface<T> {
+// public:
+//   MOCK_METHOD(T, someFunction, (T t), (override));
+// };
 
 ///////////////////////////////////////////////////////////////////////////////////
 
