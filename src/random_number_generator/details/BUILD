@@ -1,13 +1,3 @@
-# config_setting(
-#     name = "spp_host_clang",
-#     constraint_values = [
-#         "@bazel_tools//tools/cpp:clang",
-#         "@platforms//cpu:x86_64",
-#         "@platforms//os:linux",
-#     ],
-#     visibility = ["//visibility:private"],
-# )
-
 cc_library(
     name = "random_number_generator",
     srcs = [
